@@ -7,7 +7,7 @@ import {
     Nav,
     NavItem,
     NavLink,
-} from 'reactstrap';
+} from 'reactstrap'; 
 import { useHistory } from 'react-router-dom'
 import Modal from './AuthModal'
 import { toast } from 'react-toastify'

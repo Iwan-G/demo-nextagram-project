@@ -114,7 +114,7 @@ const SignUpForm = ({ toggleIsLogin, toggle }) => {
     } else {
       setPasswordValid(false)
     }
-  },[confirmPassword])
+  },[confirmPassword, password])
 
   const handleSubmit = (e) => {
     e.preventDefault()

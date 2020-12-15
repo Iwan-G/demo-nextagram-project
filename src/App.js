@@ -9,6 +9,7 @@ import { Route } from "react-router-dom";
 import NavBar from './components/Navbar';
 import MyProfilePage from './pages/MyProfilePage';
 import UploadPage from './pages/UploadPage';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
         <div>
             <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
             <Route exact path="/" render ={(props) => <HomePage{...props} users={users}/>}/>
-            <Route path="/profile/:id">
+            <Route path="/users/:id">
                 <UserProfilePage/>
                 </Route> 
             <Route exact path="/profile">
@@ -52,6 +53,7 @@ function App() {
             <Route exact path="/upload">
                 <UploadPage/>
             </Route>
+            <ToastContainer />
             
             
             

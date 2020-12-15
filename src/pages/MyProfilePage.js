@@ -13,7 +13,7 @@ const MyProfilePage = () => {
         axios.get("https://insta.nextacademy.com/api/v1/users/me",
             {
                 headers: {
-                    Authorization: "Bearer" + localStorage.getItem("jwt")
+                    "Authorization" : "Bearer " + localStorage.getItem("jwt")
                 }
             })
             .then(result => {

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { ModalHeader, ModalBody, ModalFooter, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from "reactstrap";
@@ -6,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import {useHistory} from 'react-router-dom';
 
-const SignUpForm = ({ toggleIsLogin, toggle }) => {
+const SignUpForm = ({ toggleIsLogin, toggle, setLoggedIn}) => {
   const history = useHistory()
   const [delay, setDelay] = useState(null);
   const [usernameValid, setUsernameValid] = useState(true);

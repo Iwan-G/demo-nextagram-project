@@ -5,6 +5,7 @@ import axios from "axios"
 const UploadPage = () => {
   const [imageFile, setImageFile] = useState(null)
   const [previewImage, setPreviewImage] = useState(null)
+  const [imageValue, setImageValue] =useState(null)
   const [message, setMessage] = useState('')
   
   return (
@@ -38,10 +39,19 @@ const UploadPage = () => {
           <Input
             type="file"
             name="image-file"
+            value={imageValue}
             onChange={
               (e) => {
-                setPreviewImage(URL.createObjectURL(e.target.files[0]))
-                setImageFile(e.target.files[0])
+                if(e.target.value){
+                  setImageValue(e.target.value)
+                  setPreviewImage(URL.createObjectURL(e.target.files[0]))
+                  setImageFile(e.target.files[0])
+                }else {
+                  setImageValue(null)
+                  setPreviewImage(null)
+                  setImageFile(null)
+                }
+               
               }
             }
           />

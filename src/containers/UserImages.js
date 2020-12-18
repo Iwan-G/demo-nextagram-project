@@ -2,12 +2,17 @@ import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import LoadingIndicator from '../components/LoadingIndicator'
 import {Card, CardImg} from 'reactstrap';
+import {useLocation} from 'react-router-dom';
+import Likes from './Likes';
+import Comments from './Comments';
 
 const UserImages = ({userId}) => {
     
     //console.log(userId)
     const [userImages, setUserImages] = useState([]);
     const [isloading, setIsLoading] = useState(true);
+    const location = useLocation()
+   
 
     useEffect(() => {
         //perform a GET request
@@ -26,6 +31,10 @@ const UserImages = ({userId}) => {
     
       }, [userId])
 
+
+    
+      
+
       if(isloading){
         return <LoadingIndicator width="100px" height="100px" color="blue" /> 
       }
@@ -34,13 +43,23 @@ const UserImages = ({userId}) => {
         
           <div style={{display:"flex", flexWrap:"wrap", alignItems:"center"}}>
             {userImages.map((eachImg,index) => {
-                
-                return (
-                    <Card style={{width:"200px"}}>
-                      <CardImg src={eachImg.url} alt="Card image cap" style={{width:"150px"}} />
 
-                    </Card> 
-                )
+              if(location.pathname === "/"){
+                return (
+                  <Card style={{width:"200px"}}>
+                    <CardImg src={eachImg.url} alt="Card image cap" style={{width:"150px"}} />
+                  </Card> 
+              )
+
+              } else {
+                return (
+                  <div className ='card col-12 col-sm-6 p-3' key={`${userId}-images${index}`}>
+                    <img src = {eachImg.url} height="250" alt = ""/>
+                    <Likes imageId={eachImg.id}/>
+                    <Comments imageId={eachImg.id}/>
+                    </div>
+              )
+              }
                  
             })}
           </div> 

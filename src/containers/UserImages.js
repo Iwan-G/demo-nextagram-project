@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import LoadingIndicator from '../components/LoadingIndicator'
-import {Card, CardImg} from 'reactstrap';
 import {useLocation} from 'react-router-dom';
 import Likes from './Likes';
 import Comments from './Comments';

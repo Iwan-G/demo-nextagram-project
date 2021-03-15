@@ -11,7 +11,6 @@ import {
 import { useHistory } from 'react-router-dom'
 import Modal from './AuthModal'
 import { toast } from 'react-toastify'
-import { Input } from 'reactstrap';
 import logo from "./favicon.png";
 
 

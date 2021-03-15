@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Card, CardImg, CardBody, CardTitle, CardText, Button
+  Card, CardImg, CardBody, CardTitle, Button
 } from 'reactstrap';
 
 import UserImages from '../containers/UserImages';

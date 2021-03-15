@@ -11,6 +11,8 @@ import {
 import { useHistory } from 'react-router-dom'
 import Modal from './AuthModal'
 import { toast } from 'react-toastify'
+import { Input } from 'reactstrap';
+import logo from "./favicon.png";
 
 
 const NavBar = ({ loggedIn, setLoggedIn }) => {
@@ -42,17 +44,20 @@ const NavBar = ({ loggedIn, setLoggedIn }) => {
     return (
         <div>
             <Navbar color="dark" dark expand="md">
-                <NavbarBrand style={{ cursor: "pointer" }} onClick={() => { history.push("/") }}>Nextagram</NavbarBrand>
+                <NavbarBrand style={{ cursor: "pointer" }} onClick={() => { history.push("/") }}>
+                    <img src = {logo} width="30" height="30" alt="logo"></img>
+                    Nextagram
+                </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink style={{ cursor: "pointer" }} onClick={() => { history.push("/") }}>Home</NavLink>
+                            <NavLink style={{ cursor: "pointer" }} onClick={() => { history.push("/") }} color ="primary">Users</NavLink>
                         </NavItem>
                         <NavItem>
                             {
                                 loggedIn ?
-                                    <NavLink Style={{ cursor: "pointer" }} onClick={() => handleLogout()}>Log Out</NavLink>
+                                    <NavLink style={{ cursor: "pointer" }} onClick={() => handleLogout()}>Log Out</NavLink>
                                     :
                                     <NavLink style={{ cursor: "pointer" }} onClick={toggleModal}>Log In</NavLink>
                             }

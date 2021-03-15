@@ -24,9 +24,14 @@ const UserProfilePage = () => {
 
     return (
         <>
+        <div className ="row mb-5">
         <div>
-            <h2>@{users.username}</h2>
-            <img src ={users.profileImage} className="rounded-circle" width="200" alt="profilepic"/>
+            <img src ={users.profileImage} className="rounded-circle" style={{paddingLeft: "20px"}} width="200" alt="profilepic"/>
+        </div>
+        <div className = "col-6">
+        <h2 className = "mt-3">@{users.username}</h2>
+        </div>
+
         </div>
 
                     <div className ="col-9 d-flex flex-wrap" style={{paddingLeft:"10px", display:"flex"}}>

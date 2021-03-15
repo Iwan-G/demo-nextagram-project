@@ -46,15 +46,15 @@ const UserImages = ({userId}) => {
 
               if(location.pathname === "/"){
                 return (
-                  <Card style={{width:"200px"}}>
-                    <CardImg src={eachImg.url} alt="Card image cap" style={{width:"150px"}} />
-                  </Card> 
+                  <div key={eachImg.id} style={{ width: "200px" }}>
+                  <img src={eachImg.url} alt="User Images" style={{ width: "150px", height: "100px", marginBottom: '20px' }} />
+                </div>
               )
 
               } else {
                 return (
                   <div className ='card col-12 col-sm-6 p-3' key={`${userId}-images${index}`}>
-                    <img src = {eachImg.url} height="250" alt = ""/>
+                    <img src={eachImg.url} alt="User Images" style={{ width: "200px", height: "200px", marginBottom: '20px' }} />
                     <Likes imageId={eachImg.id}/>
                     <Comments imageId={eachImg.id}/>
                     </div>

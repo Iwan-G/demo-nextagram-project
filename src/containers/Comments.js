@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Form, Input, ListGroupItem } from 'reactstrap';
+import CommentLikes from './CommentLikes';
 
 const Comments = ({imageId}) => {
     const [comments, setComments] = useState([])
@@ -57,6 +58,9 @@ const Comments = ({imageId}) => {
                       <ListGroupItem key={com.id} >
                           <div className="col-2 px-0">
                               <img src={com.posted_by.profileImage} className="rounded-circle" width="30" height="30" alt=""/>
+                          </div>
+                          <div>
+                          <span>{com.content}</span>{''} <CommentLikes comId={com.id} setSubmitted={setSubmitted} />
                           </div>
                           <span className="col-8 px-0">{com.content}</span>
                       </ListGroupItem>

@@ -6,7 +6,7 @@ const Likes = ({ imageId }) => {
 
     const [liked, setLiked] = useState(false)
     const [submitted, setSubmitted] = useState(false)
-    const [likeusers, setLikeUsers] = useState([])
+    const [likeUsers, setLikeUsers] = useState([])
 
     useEffect(() => {
         axios.get(`https://insta.nextacademy.com/api/v2/images/${imageId}`,
@@ -49,7 +49,7 @@ const Likes = ({ imageId }) => {
                 liked ? <span onClick={handleImageLike} className="text-danger" >Unlike</span> :
                     <span className="text-primary" onClick={handleImageLike}>Like</span>
             }
-            {' '} {likeusers.length} likes
+            {' '} {likeUsers.length} likes
         </ListGroupItem>
     )
 

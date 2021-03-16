@@ -26,10 +26,10 @@ const UserProfilePage = () => {
         <>
         <div className ="row mb-5">
         <div>
-            <img src ={users.profileImage} className="rounded-circle" style={{paddingLeft: "20px"}} width="200" alt="profilepic"/>
+            <img src ={users.profileImage} className="rounded-circle" style={{paddingLeft: "20px", marginTop: "20px"}} width="200" alt="profilepic"/>
         </div>
         <div className = "col-6">
-        <h2 className = "mt-3">@{users.username}</h2>
+        <h2 className = "mt-3">{users.username}</h2>
         </div>
 
         </div>

@@ -53,7 +53,7 @@ const UserImages = ({userId}) => {
               } else {
                 return (
                   <div className ='card col-12 col-sm-6 p-3' key={`${userId}-images${index}`}>
-                    <img src={eachImg.url} alt="User Images" style={{ width: "200px", height: "200px", marginBottom: '20px' }} />
+                    <img src={eachImg.url} alt="User Images" style={{ width: "350px", height: "250px", marginBottom: '20px', marginLeft: "35px" }} />
                     <Likes imageId={eachImg.id}/>
                     <Comments imageId={eachImg.id}/>
                     </div>

@@ -62,7 +62,7 @@ const Comments = ({imageId}) => {
                           <div>
                           <span>{com.content}</span>{''} <CommentLikes comId={com.id} setSubmitted={setSubmitted} />
                           </div>
-                          <span className="col-8 px-0">{com.content}</span>
+                          
                       </ListGroupItem>
                   )
               })

@@ -27,7 +27,7 @@ const CommentLikes = ({ comId, setSubmitted }) => {
     return (
         <>
             {
-                liked ? <span onClick={handleCommentLike} className="text-danger">Unlike</span> : <span onClick={handleCommentLike} className="primary">Like</span>
+                liked ? <span onClick={handleCommentLike} className="text-danger"><button>Unlike</button></span> : <span onClick={handleCommentLike} className="primary"><button>Like</button></span>
             }
         </>
     )

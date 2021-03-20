@@ -46,7 +46,7 @@ const Likes = ({ imageId }) => {
     return (
         <ListGroupItem>
             {
-                liked ? <span onClick={handleImageLike}><button background-color="danger">Unlike</button></span> : <span onClick={handleImageLike}><button color="primary">Like</button></span>
+                liked ? <span onClick={handleImageLike}><button background-color="red">Unlike</button></span> : <span onClick={handleImageLike}><button color="blue">Like</button></span>
             }
             {''} {likeUsers.length} likes
         </ListGroupItem>

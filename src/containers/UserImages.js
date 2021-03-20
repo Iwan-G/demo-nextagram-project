@@ -1,69 +1,69 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoadingIndicator from '../components/LoadingIndicator'
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Likes from './Likes';
-import Comments from './Comments';
+import Comments from './Comments';;
 
-const UserImages = ({userId}) => {
-    
-    //console.log(userId)
-    const [userImages, setUserImages] = useState([]);
-    const [isloading, setIsLoading] = useState(true);
-    const location = useLocation()
-   
+const UserImages = ({ userId }) => {
 
-    useEffect(() => {
-        //perform a GET request
-        axios.get(`https://insta.nextacademy.com/api/v2/images?userId=${userId}`)
-        .then(result => {
-          // If successful, we do stuffs with 'result'
-          //console.log(result)
-          setUserImages(result.data)
-          setIsLoading(false)
-
-        })
-        .catch(error => {
-          // If unsuccessful, we notify users what went wrong
-          console.log('ERROR: ', error)
-        })
-    
-      }, [userId])
+  //console.log(userId)
+  const [userImages, setUserImages] = useState([]);
+  const [isloading, setIsLoading] = useState(true);
+  const location = useLocation()
 
 
-    
-      
+  useEffect(() => {
+    //perform a GET request
+    axios.get(`https://insta.nextacademy.com/api/v2/images?userId=${userId}`)
+      .then(result => {
+        // If successful, we do stuffs with 'result'
+        //console.log(result)
+        setUserImages(result.data)
+        setIsLoading(false)
 
-      if(isloading){
-        return <LoadingIndicator width="100px" height="100px" color="blue" /> 
-      }
+      })
+      .catch(error => {
+        // If unsuccessful, we notify users what went wrong
+        console.log('ERROR: ', error)
+      })
 
-      return (
-        
-          <div style={{display:"flex", flexWrap:"wrap", alignItems:"center"}}>
-            {userImages.map((eachImg,index) => {
+  }, [userId])
 
-              if(location.pathname === "/"){
-                return (
-                  <div key={eachImg.id} style={{ width: "200px" }}>
-                  <img src={eachImg.url} alt="User Images" style={{ width: "150px", height: "100px", marginBottom: '20px' }} />
-                </div>
-              )
 
-              } else {
-                return (
-                  <div className ='card col-12 col-sm-6 p-3' key={`${userId}-images${index}`}>
-                    <img src={eachImg.url} alt="User Images" style={{ width: "350px", height: "250px", marginBottom: '20px', marginLeft: "35px" }} />
-                    <Likes imageId={eachImg.id}/>
-                    <Comments imageId={eachImg.id}/>
-                    </div>
-              )
-              }
-                 
-            })}
-          </div> 
-        
-      );
+
+
+
+  if (isloading) {
+    return <LoadingIndicator width="100px" height="100px" color="blue" />
+  }
+
+  return (
+
+    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center"}}>
+      {userImages.map((eachImg, index) => {
+
+        if (location.pathname === "/") {
+          return (
+            <div key={eachImg.id}>
+              <img src={eachImg.url} alt="User Images" style={{ width: "350px", height: "250px", marginBottom: '20px', marginLeft: "20px" }} />
+            </div>
+          )
+
+        } else {
+          return (
+            <div className='card col-12 col-sm-6 p-3' key={`${userId}-images${index}`}>
+              <img src={eachImg.url} alt="User Images" style={{ width: "350px", height: "250px", marginBottom: '20px', marginLeft: "35px" }} />
+              <Likes imageId={eachImg.id} />
+              <Comments imageId={eachImg.id} />
+            </div>
+          )
+        }
+
+      })}
+    </div>
+
+  );
 
 }
 export default UserImages;

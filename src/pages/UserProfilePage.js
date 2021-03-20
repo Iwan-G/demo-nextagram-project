@@ -34,7 +34,7 @@ const UserProfilePage = () => {
 
         </div>
 
-                    <div className ="col-9 d-flex flex-wrap" style={{paddingLeft:"10px", display:"flex"}}>
+                    <div className ="col-9 d-flex flex-wrap" style={{paddingLeft:"10px", display:"flex"}}> 
                         <UserImages userId ={user.id}/>
 
                     </div>

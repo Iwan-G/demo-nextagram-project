@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LoadingIndicator from '../components/LoadingIndicator'
-import { useLocation } from 'react-router-dom';
-import Likes from './Likes';
-import Comments from './Comments';;
+
+
 
 const UserImages = ({ userId }) => {
+  const style = {
+    width: "100%",
+    height: "250px",
+    objectFit: "cover",
+    boxShadow: "2px 2px #5D5C61",
+    borderRadius: "5px"
+  };
 
   //console.log(userId)
   const [userImages, setUserImages] = useState([]);
   const [isloading, setIsLoading] = useState(true);
-  const location = useLocation()
+
 
 
   useEffect(() => {
@@ -40,7 +46,22 @@ const UserImages = ({ userId }) => {
 
   return (
 
-    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center"}}>
+
+    <div className="row">
+    {userImages.map((userImage) => {
+      return (
+        <div className="col-sm-4 mb-4" key={userImage.id}>
+          <img
+            style={style}
+            src={userImage.url}
+            alt={userImage.url}
+            key={userImage.id}
+          ></img>
+        </div>
+      );
+    })}
+  </div>
+   /* <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center"}}>
       {userImages.map((eachImg, index) => {
 
         if (location.pathname === "/") {
@@ -61,7 +82,7 @@ const UserImages = ({ userId }) => {
         }
 
       })}
-    </div>
+    </div> */
 
   );
 

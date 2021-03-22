@@ -1,43 +1,64 @@
-import React from 'react';
-import {
-  Card, CardImg, CardBody, CardTitle, Button
-} from 'reactstrap';
+  
+import UsersImages from "../containers/UserImages";
+import { Link } from "react-router-dom";
+import { Card, CardImg } from "reactstrap";
 
-import UserImages from '../containers/UserImages';
-import {Link} from 'react-router-dom'
+const Homepage = ({ users }) => {
+  return users.map((user) => {
+    return (
+      <div key={user.id}>
+        <div className="container-fluid">
+          <div className="row mb-5">
+            <Card
+              className="col-12 col-sm-2 col-lg-2 col-md-2 d-flex align-items-center p-2"
+              style={{
+                width: "25vw",
+                margin: "0px",
+                borderStyle: "none",
+                backgroundColor: "	#efefef",
+                textAlign: "center",
+              }}
+            >
+              <Link
+                className="align-self-start p-2 font-weight-bold"
+                to={`/users/${user.id}`}
+              >
+                {user.username}
+              </Link>
 
+              <CardImg
+                className="rounded-circle"
+                top
+                width="100%"
+                src={user.profileImage}
+                alt="Card image cap"
+                style={{
+                  width: "80%",
+                  border: "4px solid white",
+                  marginTop: "15px",
+                }}
+              />
 
-const HomePage = ({users}) => {
-
-  return (
-    
-      <div>
-          {users.map(user => {
-              return (
-                <div key={user.id} className ="row d-flex flex-wrap" style={{backgroundColor:"lightgray", marginBottom:"10px"}}>
-                        
-                <Card className ="col-3 d-flex align-items-center" style={{width:"25vw",margin:"0px", borderStyle:"none", backgroundColor:"lightgray", textAlign:"center"}}>
-                    <CardTitle><h3>{user.username}</h3></CardTitle>
-                    <CardBody >
-                    <CardImg className="rounded-circle"top width="100%" src={user.profileImage} alt="Card image cap" style={{width:"80%", border:"4px solid black", marginBottom:"15px"}} />
-                    <Link to={`/users/${user.id}`}>
-                        <Button color="primary">View Profile</Button>
-                    </Link>
-                    
-                    </CardBody>
-
-                </Card>
-
-            <div className ="col-9 d-flex flex-wrap" style={{paddingLeft:"10px"}}>
-                <UserImages userId ={user.id}/>
+              <a
+                style={{ width: "80%" }}
+                className="btn btn-primary mt-5 "
+                href={`/users/${user.id}`}
+                type="submit"
+              >
+                See More
+              </a>
+            </Card>
+            <div
+              className="col-12 col-sm-10 col-lg-10 col-md-10 p-3"
+              style={{ backgroundColor: "	#efefef" }}
+            >
+              <UsersImages userId={user.id} />
             </div>
-        
+          </div>
         </div>
-              )
-          })}
       </div>
-    
-  );
-}
+    );
+  });
+};
 
-export default HomePage;
+export default Homepage;

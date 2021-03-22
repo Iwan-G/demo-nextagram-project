@@ -11,6 +11,7 @@ import MyProfilePage from './pages/MyProfilePage';
 import UploadPage from './pages/UploadPage';
 import { ToastContainer } from 'react-toastify';
 
+
 function App() {
 
     const[loggedIn, setLoggedIn] = useState(
@@ -42,23 +43,19 @@ function App() {
     }
     return (
         <div>
-            <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-            <Route exact path="/" render ={(props) => <HomePage{...props} users={users}/>}/>
+            <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Route exact path="/" render={(props) => <HomePage{...props} users={users} />} />
             <Route path="/users/:id">
-                <UserProfilePage/>
-                </Route> 
+                <UserProfilePage />
+            </Route>
             <Route exact path="/profile">
-                <MyProfilePage/>
+                <MyProfilePage />
             </Route>
             <Route exact path="/upload">
-                <UploadPage/>
+                <UploadPage />
             </Route>
             <ToastContainer />
             
-            
-            
-      
-           
         </div>
 
     );

@@ -11,7 +11,10 @@ import {
 import { useHistory } from 'react-router-dom'
 import Modal from './AuthModal'
 import { toast } from 'react-toastify'
-import logo from "./favicon.png";
+import { Form } from 'reactstrap';
+import { FormControl, Button } from 'react-bootstrap';
+
+
 
 
 const NavBar = ({ loggedIn, setLoggedIn }) => {
@@ -41,40 +44,50 @@ const NavBar = ({ loggedIn, setLoggedIn }) => {
     }
 
     return (
-        <div>
-            <Navbar color="dark" dark expand="md">
-                <NavbarBrand style={{ cursor: "pointer", paddingLeft:"20px" }} onClick={() => { history.push("/") }}>
-                    <img src = {logo} width="30" height="30" alt="logo"></img>
+    <div>
+      <Navbar color="light" expand="lg">
+        <NavbarBrand style={{ cursor: "pointer", paddingLeft: "20px", color: "black" }} onClick={() => { history.push("/") }}>
+          <i className="fab fa-instagram fa-lg p-1 ml-1"></i>
                     Nextagram
                 </NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <NavLink style={{ cursor: "pointer" }} onClick={() => { history.push("/") }} color ="blue">Users</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            {
-                                loggedIn ?
-                                    <NavLink style={{ cursor: "pointer" }} onClick={() => handleLogout()}color ="red">Log Out</NavLink>
-                                    :
-                                    <NavLink style={{ cursor: "pointer" }} onClick={toggleModal} color ="blue">Log In</NavLink>
-                            }
-                        </NavItem>
-                        {/* <NavItem>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <Form inline>
+                <FormControl
+                  type="text"
+                  placeholder="Type username"
+                  className="mr-sm-2"
+                />
+                <Button variant="outline-info">Search</Button>
+              </Form>
+            </NavItem>
+            <NavItem>
+              <NavLink style={{ cursor: "pointer" }} onClick={() => { history.push("/") }} >Users</NavLink>
+            </NavItem>
+            <NavItem>
+              {
+                loggedIn ?
+                  <NavLink style={{ cursor: "pointer" }} onClick={() => handleLogout()}>Log Out</NavLink>
+                  :
+                  <NavLink style={{ cursor: "pointer" }} onClick={toggleModal} >Log In</NavLink>
+              }
+            </NavItem>
+            {/* <NavItem>
                         <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
                     </NavItem> */}
 
-                    </Nav>
-                </Collapse>
-            </Navbar>
-            <Modal
-                isOpen={showModal}
-                toggle={toggleModal}
-                setLoggedIn={setLoggedIn}
-            />
-        </div>
-    );
+          </Nav>
+        </Collapse>
+      </Navbar>
+      <Modal
+        isOpen={showModal}
+        toggle={toggleModal}
+        setLoggedIn={setLoggedIn}
+      />
+    </div>
+  );
 }
 
 export default NavBar;

@@ -14,3 +14,11 @@ code {
 .m1-auto{
   color: blue;
 }
+.search-box{
+  padding-right: 3px;
+}
+.search-btn{
+  color:#17a2b8;
+  background-color: transparent;
+  border-color: #17a2b8;
+}
